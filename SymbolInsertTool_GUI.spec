@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['symbol_inserter_gui.py'],
+    ['SymbolInsertTool_GUI.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='symbol_inserter_gui',
+    name='SymbolInsertTool_GUI',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

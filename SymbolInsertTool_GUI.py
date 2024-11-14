@@ -21,6 +21,14 @@ def browse_file():
 def process_symbols():
     symbol_directory = folder_entry.get()
     stylx_path = file_entry.get()
+    symbol_size = size_entry.get()
+
+    # Validate size input
+    try:
+        symbol_size = float(symbol_size)
+    except ValueError:
+        result_label.config(text="Error: Please enter a valid number for symbol size.")
+        return
 
     if not os.path.exists(stylx_path):
         open(stylx_path, "w").close()
@@ -59,7 +67,7 @@ def process_symbols():
                         "path": image_path,
                         "title": symbol_name,
                         "url": f"data:image/png;base64,{encoded_image}",
-                        "size": 20,
+                        "size": symbol_size,
                         "enable": "true",
                         "colorLocked": "true",
                         "anchorPointUnits": "Relative",
@@ -111,6 +119,13 @@ file_entry.pack()
 
 file_button = tk.Button(root, text="Browse", command=browse_file)
 file_button.pack()
+
+size_label = tk.Label(root, text="\nEnter Symbol Size:")
+size_label.pack()
+
+size_entry = tk.Entry(root, width=10)
+size_entry.insert(0, "20")  # Default size
+size_entry.pack()
 
 tk.Label(root, text="\n\n").pack()
 process_button = tk.Button(root, text="Load PNGs Into Style", command=process_symbols)
