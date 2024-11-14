@@ -6,4 +6,12 @@
 
 - ArcGIS Pro 3.3
 
+## Language
 
+- Python
+
+## Modes
+
+- Console
+- GUI
+- ArcGIS Toolbox (Partial code is available but not working on it)
